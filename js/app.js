@@ -38,6 +38,15 @@ const makeSections = (n_sections) => {
 
     navBar.appendChild(newListItem);
   }
+
+  const listItems = navBar.querySelectorAll("li");
+
+  listItems.forEach((item) => {
+    item.style.color = "black";
+    item.style.padding = "10px";
+    item.style.listStyleType = "none";
+    item.style.cursor = "pointer";
+  });
 };
 
 /**
