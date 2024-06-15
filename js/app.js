@@ -39,6 +39,15 @@ const makeSections = (n_sections) => {
     newLink.innerText = `Section 0${i + 1}`;
     newLink.href = `#section${i + 1}`;
 
+    // each button has to hav it's own event!
+    newLink.addEventListener("click", (event) => {
+      event.preventDefault();
+      document.querySelector(`#section${i + 1}`).scrollIntoView({
+        // https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView#examples
+        behavior: "smooth",
+      });
+    });
+
     navBar.appendChild(newListItem);
     newListItem.appendChild(newLink);
   }
