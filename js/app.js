@@ -23,7 +23,7 @@
  *
  */
 
-NUMBER_OF_SECTIONS = 4;
+NUMBER_OF_SECTIONS = 3;
 /**
  * End Global Variables
  * Start Helper Functions
@@ -37,7 +37,7 @@ const makeSections = (n_sections) => {
 
     const newLink = document.createElement("a");
     newLink.innerText = `Section 0${i + 1}`;
-    newLink.href = "../index.html";
+    newLink.href = `#section${i + 1}`;
 
     navBar.appendChild(newListItem);
     newListItem.appendChild(newLink);
