@@ -23,7 +23,7 @@
  *
  */
 
-NUMBER_OF_SECTIONS = 3;
+NUMBER_OF_SECTIONS = 4;
 /**
  * End Global Variables
  * Start Helper Functions
@@ -38,15 +38,21 @@ const makeSections = (n_sections) => {
     const newLink = document.createElement("a");
     newLink.innerText = `Section 0${i + 1}`;
     newLink.href = `#section${i + 1}`;
-    newLink.style.textDecoration = "none";
+    newLink.style.height = "20px";
+    newLink.classList.add("menu__link");
 
-    // each button has to hav it's own event!
+    // each button has to have its own event
     newLink.addEventListener("click", (event) => {
       event.preventDefault();
       document.querySelector(`#section${i + 1}`).scrollIntoView({
-        // https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView#examples
         behavior: "smooth",
       });
+
+      // Highlight the nav item when active
+      document.querySelectorAll("#navbar__list a").forEach((link) => {
+        link.classList.remove("active");
+      });
+      newLink.classList.add("active");
     });
 
     navBar.appendChild(newListItem);
@@ -60,6 +66,18 @@ const makeSections = (n_sections) => {
     item.style.padding = "10px";
     item.style.listStyleType = "none";
     item.style.cursor = "pointer";
+
+    // Add mouseover event to change background color
+    item.addEventListener("mouseover", () => {
+      item.style.backgroundColor = "white";
+      item.querySelector("a").style.color = "white";
+    });
+
+    // Add mouseout event to revert background color
+    item.addEventListener("mouseout", () => {
+      item.style.backgroundColor = "";
+      item.querySelector("a").style.color = "black";
+    });
   });
 };
 
