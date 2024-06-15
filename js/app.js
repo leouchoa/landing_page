@@ -34,9 +34,13 @@ const makeSections = (n_sections) => {
   const navBar = document.querySelector("#navbar__list");
   for (let i = 0; i < n_sections; i++) {
     const newListItem = document.createElement("li");
-    newListItem.innerText = `Section 0${i + 1}`;
+
+    const newLink = document.createElement("a");
+    newLink.innerText = `Section 0${i + 1}`;
+    newLink.href = "../index.html";
 
     navBar.appendChild(newListItem);
+    newListItem.appendChild(newLink);
   }
 
   const listItems = navBar.querySelectorAll("li");
