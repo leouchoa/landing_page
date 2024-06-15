@@ -38,6 +38,7 @@ const makeSections = (n_sections) => {
     const newLink = document.createElement("a");
     newLink.innerText = `Section 0${i + 1}`;
     newLink.href = `#section${i + 1}`;
+    newLink.style.textDecoration = "none";
 
     // each button has to hav it's own event!
     newLink.addEventListener("click", (event) => {
