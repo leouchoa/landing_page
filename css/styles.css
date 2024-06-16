@@ -66,40 +66,22 @@ section {
 /* ---- Module Rules ---- */
 
 /* Navigation Styles*/
-.navbar__menu ul {
-  padding-left: 0;
-  margin: 0;
-  text-align: right;
-  list-style-type: none; /* Remove default list styling */
-}
-
-.navbar__menu li {
-  display: inline-block;
-  margin: 10px;
-}
-
-.navbar__menu li a {
+.menu__link {
   display: block;
   padding: 1em;
   font-weight: bold;
   text-decoration: none;
-  color: black;
-}
-
-.navbar__menu li:hover a {
-  background-color: #333;
-  color: white;
-  transition: ease 0.3s all;
+  color: black; /* Default text color */
+  transition: ease 0.3s all; /* Smooth transition for color change */
 }
 
 .menu__link.active {
-  background-color: #333;
-  color: white;
+  color: white; /* Text color changes to white for active link */
 }
 
-.menu__link.active:hover {
+.menu__link:hover {
   background-color: #333;
-  color: white;
+  color: white; /* Text color changes to white on hover */
 }
 
 /* Header Styles */

@@ -24,72 +24,71 @@
  */
 
 NUMBER_OF_SECTIONS = 4;
+
 /**
  * End Global Variables
  * Start Helper Functions
- *
  */
 
 const makeSections = (n_sections) => {
   const navBar = document.querySelector("#navbar__list");
+  let activeLink = null; // Track the currently active link
+
   for (let i = 0; i < n_sections; i++) {
     const newListItem = document.createElement("li");
 
     const newLink = document.createElement("a");
     newLink.innerText = `Section 0${i + 1}`;
     newLink.href = `#section${i + 1}`;
-    newLink.style.height = "20px";
     newLink.classList.add("menu__link");
 
-    // each button has to have its own event
+    // Add click event listener to scroll and highlight the clicked item
     newLink.addEventListener("click", (event) => {
       event.preventDefault();
-      document.querySelector(`#section${i + 1}`).scrollIntoView({
+      const sectionId = `section${i + 1}`;
+      document.querySelector(`#${sectionId}`).scrollIntoView({
         behavior: "smooth",
       });
 
-      // Highlight the nav item when active
-      document.querySelectorAll("#navbar__list a").forEach((link) => {
-        link.classList.remove("active");
-      });
+      // Remove active class from previously active link
+      if (activeLink) {
+        activeLink.classList.remove("active");
+        activeLink.style.color = "black"; // Reset text color
+      }
+
+      // Add active class to the clicked link
       newLink.classList.add("active");
+      newLink.style.color = "white"; // Set text color to white for active link
+      activeLink = newLink;
+    });
+
+    // Add mouseover event to change background color
+    newListItem.addEventListener("mouseover", () => {
+      if (newLink !== activeLink) {
+        newListItem.style.backgroundColor = "white";
+        newLink.style.color = "white";
+      }
+    });
+
+    // Add mouseout event to revert background color
+    newListItem.addEventListener("mouseout", () => {
+      if (newLink !== activeLink) {
+        newListItem.style.backgroundColor = "";
+        newLink.style.color = "black";
+      }
     });
 
     navBar.appendChild(newListItem);
     newListItem.appendChild(newLink);
   }
-
-  const listItems = navBar.querySelectorAll("li");
-
-  listItems.forEach((item) => {
-    item.style.color = "black";
-    item.style.padding = "10px";
-    item.style.listStyleType = "none";
-    item.style.cursor = "pointer";
-
-    // Add mouseover event to change background color
-    item.addEventListener("mouseover", () => {
-      item.style.backgroundColor = "white";
-      item.querySelector("a").style.color = "white";
-    });
-
-    // Add mouseout event to revert background color
-    item.addEventListener("mouseout", () => {
-      item.style.backgroundColor = "";
-      item.querySelector("a").style.color = "black";
-    });
-  });
 };
 
 /**
  * End Helper Functions
  * Begin Main Functions
- *
  */
 
 // build the nav
-//
-// select the nav bar
 makeSections(NUMBER_OF_SECTIONS);
 // Add class 'active' to section when near top of viewport
 
