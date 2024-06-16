@@ -66,18 +66,36 @@ section {
 
 /* Navigation Styles*/
 .navbar__menu ul {
+  font-weight: bold;
+  text-decoration: none;
+  color: black; /* Default text color */
+  transition: ease 0.3s all; /* Smooth transition for color change */
   padding-left: 0;
   margin: 0;
-  text-align: right;
+  text-align: center;
 }
 
 .navbar__menu li {
-  display: inline-block;
+  padding: 0; /* Adjust padding if needed */
+  margin: 0; /* Adjust margin if needed */
+}
+
+.menu__link.active {
+  color: white; /* Text color changes to white for active link */
+}
+
+.navbar__menu li {
+  display: inline-flex;
+  padding-left: 2%;
+}
+
+.menu__link:hover {
+  background-color: #333;
+  color: white; /* Text color changes to white on hover */
 }
 
 .navbar__menu .menu__link {
-  display: block;
-  padding: 1em;
+  display: inline-block;
   font-weight: bold;
   text-decoration: none;
   color: #000;
@@ -127,6 +145,12 @@ section:nth-of-type(even) .landing__container {
   margin-right: 0;
   margin-left: auto;
   text-align: right;
+}
+
+.active-section {
+  display: inline-block;
+  border-style: solid;
+  background-color: lightgrey;
 }
 
 /* Background Circles */
@@ -233,3 +257,27 @@ section.your-active-class .landing__container::after {
   }
 }
 
+.menu__link {
+  display: block;
+  padding: 1em;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+
+.menu__link.active {
+  background: #333;
+  color: white;
+}
+
+.menu__link:hover {
+  background: #333;
+  color: white;
+  transition: ease 0.3s all;
+}
+
+@media (max-width: 600px) {
+  .navbar__menu ul {
+    font-size: 0.9em;
+  }
+}
