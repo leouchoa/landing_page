@@ -60,6 +60,7 @@ main {
 section {
   position: relative;
   min-height: 80vh;
+  padding-top: 175px;
 }
 
 /* ---- Module Rules ---- */
@@ -69,10 +70,19 @@ section {
   padding-left: 0;
   margin: 0;
   text-align: right;
+  color: black;
 }
 
 .navbar__menu li {
-  display: inline-block;
+  /**display: inline-block;*/
+  display: grid;
+  grid-template-rows: auto;
+  font-size: medium;
+  color: black;
+  padding: 10px;
+  margin-bottom: 1px;
+  text-align: center;
+  justify-content: center;
 }
 
 .navbar__menu .menu__link {
@@ -80,12 +90,12 @@ section {
   padding: 1em;
   font-weight: bold;
   text-decoration: none;
-  color: #000;
+  color: black;
 }
 
 .navbar__menu .menu__link:hover {
   background: #333;
-  color: #fff;
+  color: black;
   transition: ease 0.3s all;
 }
 
@@ -96,7 +106,6 @@ section {
   top: 0;
   width: 100%;
   z-index: 5;
-  height: 80px;
 }
 
 /* Footer Styles */
@@ -128,6 +137,12 @@ section:nth-of-type(even) .landing__container {
   margin-right: 0;
   margin-left: auto;
   text-align: right;
+}
+
+.active-section {
+  display: inline-block;
+  border-style: solid;
+  background-color: lightgrey;
 }
 
 /* Background Circles */
@@ -234,10 +249,43 @@ section.your-active-class .landing__container::after {
   }
 }
 
-@media (max-width: 600px) {
-  .container {
-    grid-template-rows: auto auto;
-    padding: 10px;
+@media (min-width: 760px) {
+  .navbar__menu li {
+    display: inline-block;
+    justify-content: center;
+    font-size: medium;
+    border-top-color: darkslateblue;
+    border-bottom-color: darkslateblue;
+  }
+
+  section {
+    padding-top: 125px;
+  }
+
+  .active-section {
+    display: inline-block;
+    border-style: solid;
+    background-color: lightgrey;
+  }
+}
+
+@media (min-width: 760px) {
+  .navbar__menu li {
+    display: inline-block;
+    justify-content: center;
+    font-size: medium;
+    border-top-color: darkslateblue;
+    border-bottom-color: darkslateblue;
+  }
+
+  section {
+    padding-top: 125px;
+  }
+
+  .active-section {
+    display: inline-block;
+    border-style: solid;
+    background-color: lightgrey;
   }
 }
 
@@ -246,16 +294,16 @@ section.your-active-class .landing__container::after {
   padding: 1em;
   font-weight: bold;
   text-decoration: none;
-  color: #000;
+  color: black;
 }
 
 .menu__link.active {
   background: #333;
-  color: #fff;
+  color: black;
 }
 
 .menu__link:hover {
   background: #333;
-  color: #fff;
+  color: black;
   transition: ease 0.3s all;
 }
