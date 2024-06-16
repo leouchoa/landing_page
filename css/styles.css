@@ -276,7 +276,7 @@ section.your-active-class .landing__container::after {
   transition: ease 0.3s all;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .navbar__menu ul {
     font-size: 0.9em;
   }
