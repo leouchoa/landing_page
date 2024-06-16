@@ -234,46 +234,6 @@ section.your-active-class .landing__container::after {
   }
 }
 
-@media (min-width: 760px) {
-  .navbar__menu li {
-    display: inline-block;
-    justify-content: center;
-    font-size: medium;
-    border-top-color: darkslateblue;
-    border-bottom-color: darkslateblue;
-  }
-
-  section {
-    padding-top: 125px;
-  }
-
-  .active-section {
-    display: inline-block;
-    border-style: solid;
-    background-color: lightgrey;
-  }
-}
-
-@media (min-width: 760px) {
-  .navbar__menu li {
-    display: inline-block;
-    justify-content: center;
-    font-size: medium;
-    border-top-color: darkslateblue;
-    border-bottom-color: darkslateblue;
-  }
-
-  section {
-    padding-top: 125px;
-  }
-
-  .active-section {
-    display: inline-block;
-    border-style: solid;
-    background-color: lightgrey;
-  }
-}
-
 .menu__link {
   display: block;
   padding: 1em;
