@@ -73,7 +73,6 @@ section {
   padding-left: 0;
   margin: 0;
   text-align: center;
-  font-size: 0.8em; /* Adjust font size */
 }
 
 .navbar__menu li {
@@ -275,4 +274,10 @@ section.your-active-class .landing__container::after {
   background: #333;
   color: white;
   transition: ease 0.3s all;
+}
+
+@media (max-width: 500px) {
+  .navbar__menu ul {
+    font-size: 0.9em;
+  }
 }
