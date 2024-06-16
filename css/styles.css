@@ -73,6 +73,12 @@ section {
   padding-left: 0;
   margin: 0;
   text-align: center;
+  font-size: 0.8em; /* Adjust font size */
+}
+
+.navbar__menu li {
+  padding: 0; /* Adjust padding if needed */
+  margin: 0; /* Adjust margin if needed */
 }
 
 .menu__link.active {
