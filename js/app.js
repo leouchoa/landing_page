@@ -13,23 +13,6 @@
  *
  */
 
-/**
- * Comments should be present at the beginning of each procedure and class.
- * Great to have comments before crucial code sections within the procedure.
- */
-
-/**
- * Define Global Variables
- *
- */
-
-NUMBER_OF_SECTIONS = 4;
-
-/**
- * End Global Variables
- * Start Helper Functions
- */
-
 const makeSections = (n_sections) => {
   const navBar = document.querySelector("#navbar__list");
   let activeLink = null; // Track the currently active link
@@ -83,26 +66,27 @@ const makeSections = (n_sections) => {
   }
 };
 
-/**
- * End Helper Functions
- * Begin Main Functions
- */
+const HighlightActiveSection = () => {
+  const THRESHOLD = 0.6; // 60% of the section should be visible in the viewport
+  let sections = document.querySelectorAll("section");
 
-// build the nav
-makeSections(NUMBER_OF_SECTIONS);
-// Add class 'active' to section when near top of viewport
+  sections.forEach((section) => {
+    const rect = section.getBoundingClientRect();
+    const isInViewport =
+      rect.top >= 0 &&
+      rect.bottom <=
+        (rect.innerHeight || document.documentElement.clientHeight) *
+          (1 + THRESHOLD);
 
-// Scroll to anchor ID using scrollTO event
+    if (isInViewport) {
+      section.classList.add("active-section");
+    } else {
+      section.classList.remove("active-section");
+    }
+  });
+};
 
-/**
- * End Main Functions
- * Begin Events
- *
- */
+number_of_sections = document.querySelectorAll("section");
+makeSections(number_of_sections.length);
 
-// Build menu
-
-// Scroll to section on link click
-
-//
-// Set sections as active
+window.addEventListener("scroll", HighlightActiveSection);
